@@ -21,6 +21,12 @@ gradlew uploadArchives
 ```
 buildscript {
     ...
+    repositories {
+        ...
+        maven {
+            url uri('./snapshotRepo')
+        }
+    }
     dependencies {
         ...
         classpath 'com.chzy:autotrack-gradle-plugin:1.0.3-SNAPSHOT'
