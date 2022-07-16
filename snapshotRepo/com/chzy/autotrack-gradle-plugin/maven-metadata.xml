@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>com.chzy</groupId>
+  <artifactId>autotrack-gradle-plugin</artifactId>
+  <versioning>
+    <versions>
+      <version>1.0.3-SNAPSHOT</version>
+    </versions>
+    <lastUpdated>20220716130139</lastUpdated>
+  </versioning>
+</metadata>

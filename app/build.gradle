@@ -1,0 +1,63 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.0"
+
+    defaultConfig {
+        applicationId "com.demo.cc"
+        minSdkVersion 19
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'com.google.android.material:material:1.2.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.1'
+    implementation 'androidx.navigation:navigation-fragment:2.3.0'
+    implementation 'androidx.navigation:navigation-ui:2.3.0'
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+}
+
+apply plugin: 'com.chzy.autotrack'
+
+AutoTrackConfig {
+    // 是否打印日志,可选,默认false
+    isDebug = false
+    // 是否打开SDK的日志全埋点采集,可选,默认true
+    isOpenLogTrack = true
+    // 自定义track类
+//    trackClas 你的埋点入口类的路径。（埋点入口类可参考Demo里AutoTrackHelper的实现）
+    trackClass = 'com/demo/cc/autotrack/AutoTrackHelper'
+    // com.demo.cc 换成你的包名
+    include = ["com.demo.cc","butterknife.internal"]
+
+    exclude = []
+    // 支持自定义配置,可选,默认空
+    matchData = []
+}
